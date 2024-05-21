@@ -30,7 +30,6 @@ function swapFunc() {
       englishInputHistory.push(englishInput.value + ": From text to hand sign");
     }
     englishInput.value = "";
-    contentEle1.value = ""
     signOutput.style.display = "none";
     ele1.style.order = "3";
     swapBtn.style.order = "2";
@@ -48,11 +47,10 @@ function swapFunc() {
       englishInputHistory.push(englishInput.value + ": From hand sign to text");
       englishInput.value = "";
     }
-    englishInput.value = "";
     if (toggleButton.innerHTML === "Turn Off Camera") {
+      englishInput.value = "";
       toggleButton.click();
     }
-    contentEle1.value = ""
     startFunc(); // Reset to original order
     currentStage = 0;
     document.getElementById("toggle-button").style.display = "none";

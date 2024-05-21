@@ -106,11 +106,16 @@ def process_hands(img):
             # Start a new thread that will set allow_prediction to True after 1 second
             threading.Thread(target=delayed_prediction_reset).start()
 
-        # cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 0), 4)
-        cv2.putText(img, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 255, 255), 4, cv2.LINE_AA)
+            # Draw the text with a black outline
+        cv2.putText(img, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), 6, cv2.LINE_AA)
+        # Draw the text in white over the outline
+        cv2.putText(img, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
     # Display the full history of predictions on the frame
-    cv2.putText(img, predicted_word, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
+    # Draw the text with a black outline
+    cv2.putText(img, predicted_word, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.7, (0, 0, 0), 4, cv2.LINE_AA)
+    # Draw the text in white over the outline
+    cv2.putText(img, predicted_word, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.7, (255, 255, 255), 2, cv2.LINE_AA)
 
     return img
 

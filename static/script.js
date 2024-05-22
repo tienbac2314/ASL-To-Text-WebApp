@@ -26,9 +26,6 @@ const disableInput = (event) => {
 
 function swapFunc() {
   if (!currentStage) {
-    if (englishInput.value !== "") {
-      englishInputHistory.push(englishInput.value + ": From text to hand sign");
-    }
     englishInput.value = "";
     signOutput.style.display = "none";
     ele1.style.order = "3";
@@ -43,13 +40,13 @@ function swapFunc() {
     videoContainer.style.display = "none"; // Hide the video container
     englishInput.addEventListener("keydown", disableInput);
   } else {
-    if (englishInput.value !== "") {
-      englishInputHistory.push(englishInput.value + ": From hand sign to text");
-      englishInput.value = "";
-    }
     if (toggleButton.innerHTML === "Turn Off Camera") {
       englishInput.value = "";
       toggleButton.click();
+    }
+    if (englishInput.value !== "") {
+      englishInputHistory.push(englishInput.value + ": From hand sign to text");
+      englishInput.value = "";
     }
     startFunc(); // Reset to original order
     currentStage = 0;
